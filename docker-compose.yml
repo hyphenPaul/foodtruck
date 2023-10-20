@@ -1,0 +1,25 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: foodtruck
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  foodtruck:
+    container_name: foodtruck
+    build: ~/foodtruck
+    environment:
+      DATABASE_URL: ecto://postgres:postgres@postgres/foodtruck
+    volumes:
+      - "~/foodtruck:/app"
+    ports:
+      - "4000:4000"
+
+volumes:
+  postgres_data:

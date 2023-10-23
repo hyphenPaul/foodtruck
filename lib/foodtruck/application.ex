@@ -12,6 +12,8 @@ defmodule Foodtruck.Application do
       Foodtruck.Repo,
       {DNSCluster, query: Application.get_env(:foodtruck, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Foodtruck.PubSub},
+      # Start the Finch HTTP client for sending emails
+      {Finch, name: Foodtruck.Finch},
       # Start a worker by calling: Foodtruck.Worker.start_link(arg)
       # {Foodtruck.Worker, arg},
       # Start to serve requests, typically the last entry

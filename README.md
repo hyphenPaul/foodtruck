@@ -20,3 +20,5 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 Installation
 - docker-compose pull
+- mix ecto.migrate
+- mix seed.db

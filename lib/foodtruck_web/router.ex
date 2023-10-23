@@ -20,6 +20,12 @@ defmodule FoodtruckWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/api", FoodtruckWeb do
+    pipe_through :api
+
+    get "/locations", LocationsController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", FoodtruckWeb do
   #   pipe_through :api

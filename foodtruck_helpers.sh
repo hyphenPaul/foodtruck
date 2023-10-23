@@ -27,3 +27,7 @@ function foodtruck-run-all() {
   foodtruck-credo
   foodtruck-dialyzer
 }
+
+function foodtruck-log() {
+  docker logs -f foodtruck
+}

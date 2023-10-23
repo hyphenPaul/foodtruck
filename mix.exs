@@ -54,7 +54,8 @@ defmodule Foodtruck.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:httpoison, "~> 2.0"},
       {:csv, "~> 3.2"},
-      {:decimal, "~> 2.0"}
+      {:decimal, "~> 2.0"},
+      {:dialyxir, "~> 1.4"}
     ]
   end
 

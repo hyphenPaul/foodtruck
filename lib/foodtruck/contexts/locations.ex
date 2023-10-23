@@ -12,13 +12,20 @@ defmodule Foodtruck.Context.Locations do
   @doc """
   Get all locations with options to filter.
 
+  Filter:
   Filter the query using a map of locations keys
   which always query with AND logic, not OR.
+
+  Distance Calulation:
+  Calculate the distance in meters and populate the
+  distance_meters virtual field when the "user_lat" and 
+  "user_long" keys are populated
   """
   @spec get_all(map()) :: [Location.t()]
   def get_all(params) do
     base_query()
     |> filter(params)
+    |> calculate_distance(params)
     |> Repo.all()
   end
 
@@ -51,10 +58,22 @@ defmodule Foodtruck.Context.Locations do
   end
 
   @doc """
-  !uery used as the base for Ecto composed queries
+  Query used as the base for Ecto composed queries
   """
   @spec base_query :: Ecto.Query.t()
   def base_query, do: from(_ in Location)
+
+  @spec calculate_distance(Ecto.Query.t(), map()) :: Ecto.Query.t()
+  defp calculate_distance(query, %{"user_lat" => user_lat, "user_long" => user_long}) do
+    query
+    |> select_merge(%{distance_meters: fragment("earth_distance(
+      ll_to_earth(?, ?),
+      ll_to_earth(latitude, longitude)
+    ) as distance_meters", ^user_lat, ^user_long)})
+    |> order_by(fragment("distance_meters ASC"))
+  end
+
+  defp calculate_distance(query, _), do: query
 
   @spec filter(Ecto.Query.t(), map()) :: Ecto.Query.t()
   defp filter(query, params) do

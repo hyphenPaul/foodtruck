@@ -1,4 +1,8 @@
 defmodule Foodtruck.Location do
+  @moduledoc """
+  A model of a foodtruck location
+  """
+
   use Ecto.Schema
 
   import Ecto.Changeset
@@ -35,6 +39,9 @@ defmodule Foodtruck.Location do
     field(:locationid, :string)
     field(:lot, :string)
     field(:permit, :string)
+
+    # Calculated using earth_distance in Postgres
+    field(:distance_meters, :decimal, virtual: true)
   end
 
   @spec changeset(t(), map()) :: Ecto.Changeset.t()

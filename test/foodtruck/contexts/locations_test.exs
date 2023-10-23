@@ -6,9 +6,32 @@ defmodule Foodtruck.Contexts.LocationsTest do
 
   describe "get_all/1" do
     setup do
-      l1 = insert!(:location, locationid: "1", address: "foo")
-      l2 = insert!(:location, locationid: "2", address: "foo")
-      l3 = insert!(:location, locationid: "3", address: "bar")
+      # New York
+      l1 =
+        insert!(:location,
+          locationid: "1",
+          address: "foo",
+          latitude: Decimal.from_float(39.952583),
+          longitude: Decimal.from_float(-74.005974)
+        )
+
+      # Philadelphia
+      l2 =
+        insert!(:location,
+          locationid: "2",
+          address: "foo",
+          latitude: Decimal.from_float(39.952583),
+          longitude: Decimal.from_float(-75.165222)
+        )
+
+      # San Francisco
+      l3 =
+        insert!(:location,
+          locationid: "3",
+          address: "bar",
+          latitude: Decimal.from_float(37.774929),
+          longitude: Decimal.from_float(-74.005974)
+        )
 
       {:ok, %{locations: [l1, l2, l3]}}
     end
@@ -27,6 +50,14 @@ defmodule Foodtruck.Contexts.LocationsTest do
 
       assert results = Locations.get_all(%{"address" => "bar"})
       assert results == [l3]
+    end
+
+    test "calculates distance when user_lat and user_long are passed", %{locations: [l1, l2, l3]} do
+      # Baltimore lat and long
+      params = %{"user_lat" => 39.290386, "user_long" => -76.612190}
+
+      assert results = Locations.get_all(params)
+      assert Enum.map(results, & &1.locationid) == [l2.locationid, l1.locationid, l3.locationid]
     end
   end
 
@@ -52,7 +83,11 @@ defmodule Foodtruck.Contexts.LocationsTest do
     end
 
     test "creates with lat long as strings" do
-      assert {:ok, result} = Locations.create(%{"latitude" => Decimal.new("123.456"), "longitude" => Decimal.new("456.789")})
+      assert {:ok, _result} =
+               Locations.create(%{
+                 "latitude" => Decimal.new("123.456"),
+                 "longitude" => Decimal.new("456.789")
+               })
     end
   end
 end

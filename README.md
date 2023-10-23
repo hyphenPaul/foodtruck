@@ -22,3 +22,6 @@ Installation
 - docker-compose pull
 - mix ecto.migrate
 - mix seed.db
+
+Cleanup
+- docker-compose down --volumes

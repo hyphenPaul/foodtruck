@@ -15,6 +15,7 @@ defmodule FoodtruckWeb.LocationsJSON do
     data(location)
   end
 
+  @spec data(Location.t()) :: map()
   defp data(%Location{} = location) do
     %{
       address: location.address,
@@ -45,7 +46,8 @@ defmodule FoodtruckWeb.LocationsJSON do
       dayshours: location.dayshours,
       locationid: location.locationid,
       lot: location.lot,
-      permit: location.permit
+      permit: location.permit,
+      distance_meters: location.distance_meters
     }
   end
 end

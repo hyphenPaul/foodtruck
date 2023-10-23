@@ -12,6 +12,7 @@ defmodule FoodtruckWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug FoodtruckWeb.LocationPlug
   end
 
   scope "/", FoodtruckWeb do

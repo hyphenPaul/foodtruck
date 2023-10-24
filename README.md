@@ -2,15 +2,15 @@
 
 Are you in San Francisco? Are you hungry? Do you love food from trucks? If you answer "yes", Foodtruck is for you.
 
-The San Franciso government posts [this handy set of foodtruck data](https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/data). Unfortunatley it's a
-static list of foodtrucks. It would be nice to do something with this data. Maybe you would like to filter this list down. How about finding the truck that's closest to you? Foodtruck
-does exactly that.
+The San Franciso government posts [this handy set of foodtruck data](https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat/data). Unfortunately, it's a
+static list of food trucks. It would be nice to do something with this data. You may want to filter this list down. How about finding the truck that's closest to you? Foodtruck
+does precisely that.
 
 Foodtruck is a simple API powered by Phoenix and PostgreSQL. It's a base application designed to be easy to spin up, work on, and expand upon.
 
 ## Installation
 
-Running Foodtruck requires 'docker', 'docker-compose', and 'git' running on your local computer along with a Mac OS or Linux operating system. You can find installation instructions for them here:
+Running Foodtruck requires `docker`, `docker-compose`, and `git` running on your local computer with a Mac OS or Linux operating system. You can find installation instructions for them here:
 
  - https://docs.docker.com/engine/install/
  - https://docs.docker.com/compose/install/
@@ -18,7 +18,7 @@ Running Foodtruck requires 'docker', 'docker-compose', and 'git' running on your
 
 Note: This has only been tested on docker running on an M2 Mac OS. It will most likely work on Linux and most likely not work on Windows.
 
-Once you install the above applications download the repo into your home directory and `cd` into it.
+Once you install the above applications, download the repo into your home directory and `cd` into it.
 
 ```
 cd ~
@@ -60,11 +60,11 @@ This application runs on http://localhost:4000.
 
 ### Full List
 
-To see a full list of foodtruck locations navigate to http://localhost:4000/api/locations.
+To see a complete list of foodtruck locations, navigate to http://localhost:4000/api/locations.
 
 ### Filtered List
 
-To filter locations add any location key and value as a query param. You can find a specific applicant here: http://localhost:4000/api/locations?applicant=Halal%20Cart,%20LLC, or how about
+To filter locations, add any location key and value as a query param. You can find a specific applicant here: http://localhost:4000/api/locations?applicant=Halal%20Cart,%20LLC, or how about
 all of the suspended results here: http://localhost:4000/api/locations?status=SUSPEND.
 
 ### Sort By Location
@@ -76,10 +76,10 @@ If you want to send a link to a friend, you can manually add a location. Check t
 
 ### Development tools
 
-If you would like to test the application you'll find a couple handy shell function here: https://github.com/hyphenPaul/foodtruck/blob/main/foodtruck_helpers.sh. You can test the app, run
+If you would like to test the application you'll find a couple of handy shell functions here: https://github.com/hyphenPaul/foodtruck/blob/main/foodtruck_helpers.sh. You can test the app, run
 credo, or run dialyzer.
 
-To run all of three do the following.
+To run all three do the following.
 ```
 source ~/foodtruck/foodtruck_helpers.sh
 foodtruck-run-all
@@ -93,7 +93,7 @@ foodtruck-exec 'mix seed.db'
 
 ## Improvements
 
-This API, like all APIs, is a building block. Its a tool to integrate with. From here you can create a nice web interface, a mobile app, or a command line tool. Go wild!
+This API, like all APIs, is a building block. It's a tool to integrate with. From here you can create a nice web interface, a mobile app, or a command line tool. Go wild!
 
 There are some potential technical improvements:
 - Timeouts and error handling on failed location calls

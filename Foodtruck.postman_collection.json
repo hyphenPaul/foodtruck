@@ -59,6 +59,14 @@
 				"header": []
 			},
 			"response": []
+		},
+		{
+			"name": "Request Manual Location",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }

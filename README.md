@@ -72,6 +72,8 @@ all of the suspended results here: http://localhost:4000/api/locations?status=SU
 To find the results closest to you, add `calcuserloc=true` to the request like this: http://localhost:4000/api/locations?calcuserloc=true. The application will utilize the https://api.ipify.org
 and http://ip-api.com APIs to determine the user location. If a request is made from a computer running a VPN, the location will most likely be wrong. 
 
+If you want to send a link to a friend, you can manually add a location. Check this out if you're in the heart of The Mission: http://localhost:4000/api/locations?user_lat=37.763497977860474&user_long=-122.41733185071337.
+
 ### Development tools
 
 If you would like to test the application you'll find a couple handy shell function here: https://github.com/hyphenPaul/foodtruck/blob/main/foodtruck_helpers.sh. You can test the app, run
@@ -97,3 +99,4 @@ There are some potential technical improvements:
 - Timeouts and error handling on failed location calls
 - Field filtering on request
 - Scheduled data refresh
+

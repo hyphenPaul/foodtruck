@@ -32,6 +32,12 @@ docker-compose pull
 docker-compose up
 ```
 
+Now seed the database in another bash session.
+```
+source ~/foodtruck/foodtruck_helpers.sh
+foodtruck-exec 'mix seed.db'
+```
+
 That's it. You should be up and running! Hit `ctrl+d` to stop the containers. See the uninstall section below to uninstall.
 
 ## Uninstall

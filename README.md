@@ -64,7 +64,7 @@ To see a full list of foodtruck locations navigate to http://localhost:4000/api/
 
 ### Filtered List
 
-To filter locations add any location key and value as a query param. You can find a specific applicant here: http://localhost:4000/api/locations?applicant=Halal Cart, LLC, or how about
+To filter locations add any location key and value as a query param. You can find a specific applicant here: http://localhost:4000/api/locations?applicant=Halal%20Cart,%20LLC, or how about
 all of the suspended results here: http://localhost:4000/api/locations?status=SUSPEND.
 
 ### Sort By Location
